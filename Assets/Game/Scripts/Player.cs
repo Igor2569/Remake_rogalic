@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
 {
     private float movex;
     public Animator anim;
-    private float speed = 30f;
-    private Rigidbody2D rb;
+	public Rigidbody2D rb;
+	private float speed = 30f;
     private float movey;
     private Vector2 moveVector;
     private Action movement;
