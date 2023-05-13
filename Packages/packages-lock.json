@@ -9,6 +9,13 @@
       },
       "hash": "932f2089bad3647d25546cb8441dcc0eb1244d6f"
     },
+    "com.starsmithgames.go": {
+      "version": "https://github.com/StarSmithGames/com.starsmithgames.go.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "bd8d9f0acc45c041d1ae006357b6d366366a09d0"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.10",
       "depth": 1,
