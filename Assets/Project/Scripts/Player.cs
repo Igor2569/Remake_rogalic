@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private float movex;
     public Animator anim;
     private float speed = 30f;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private float movey;
     private Vector2 moveVector;
     private Action movement;
@@ -30,13 +30,40 @@ public class Player : MonoBehaviour
         moveVector.x = Input.GetAxis("Horizontal") * Time.deltaTime;
         moveVector.y = Input.GetAxis("Vertical") * Time.deltaTime;
         rb.MovePosition(rb.position + moveVector * speed);
-        if (movex == 0 && movey == 0)
+        if (Input.GetKey(KeyCode.W))
         {
-            anim.SetBool("IsRunning", false);
+            anim.SetBool("IsUp", true);
+            
         }
         else
         {
-            anim.SetBool("IsRunning", true);
+            anim.SetBool("IsUp", false);
         }
+        if (Input.GetKey(KeyCode.S))
+        {
+            anim.SetBool("IsDown", true);
+        }
+        else
+        {
+            anim.SetBool("IsDown", false);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("IsRight", true);
+        }
+        else
+        {
+            anim.SetBool("IsRight", false);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            anim.SetBool("IsLeft", true);
+        }
+        else
+        {
+            anim.SetBool("IsLeft", false);
+        }
+       
+
     }
 }
