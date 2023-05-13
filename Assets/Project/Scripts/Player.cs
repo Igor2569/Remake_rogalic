@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     private float movey;
     private Vector2 moveVector;
     private Action movement;
+    private float scalex;
+    private float scaley = 4.039235f;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,38 +34,31 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position + moveVector * speed);
         if (Input.GetKey(KeyCode.W))
         {
-            anim.SetBool("IsUp", true);
-            
-        }
-        else
-        {
-            anim.SetBool("IsUp", false);
+            scalex = 3.574679f;
+            transform.localScale = new Vector2(scalex, scaley);
+            anim.SetFloat("Horizontal", 0f);
+            anim.SetFloat("Vertical", 1f);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            anim.SetBool("IsDown", true);
-        }
-        else
-        {
-            anim.SetBool("IsDown", false);
+            scalex = 3.574679f;
+            transform.localScale = new Vector2(scalex, scaley);
+            anim.SetFloat("Horizontal", 0f);
+            anim.SetFloat("Vertical", -1f);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            anim.SetBool("IsRight", true);
-        }
-        else
-        {
-            anim.SetBool("IsRight", false);
+            scalex = 3.574679f;
+            transform.localScale = new Vector2(scalex, scaley);
+            anim.SetFloat("Horizontal", 1f);
+            anim.SetFloat("Vertical", 0f);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            anim.SetBool("IsLeft", true);
+            scalex = -3.574679f;
+            transform.localScale = new Vector2(scalex, scaley);
+            anim.SetFloat("Horizontal", -1f);
+            anim.SetFloat("Vertical", 0f);
         }
-        else
-        {
-            anim.SetBool("IsLeft", false);
-        }
-       
-
     }
 }
