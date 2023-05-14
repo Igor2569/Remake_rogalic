@@ -9,16 +9,24 @@ namespace Game.Entities
     {
         private float movex;
         public Animator anim;
-        public Rigidbody2D rb;
         private float speed = 30f;
+        public Rigidbody2D rb;
         private float movey;
         private Vector2 moveVector;
-
-        void Update()
+        private Action movement;
+        private float scalex;
+        private float scaley = 4.039235f;
+        // Start is called before the first frame update
+        void Start()
         {
-            Go();
+            movement = Go;
         }
 
+        // Update is called once per frame
+        void Update()
+        {
+            movement.Invoke();
+        }
         private void Go()
         {
             movex = Input.GetAxis("Horizontal");
@@ -26,13 +34,33 @@ namespace Game.Entities
             moveVector.x = Input.GetAxis("Horizontal") * Time.deltaTime;
             moveVector.y = Input.GetAxis("Vertical") * Time.deltaTime;
             rb.MovePosition(rb.position + moveVector * speed);
-            if (movex == 0 && movey == 0)
+            if (Input.GetKey(KeyCode.W))
             {
-                anim.SetBool("IsRunning", false);
+                scalex = 3.574679f;
+                transform.localScale = new Vector2(scalex, scaley);
+                anim.SetFloat("Horizontal", 0f);
+                anim.SetFloat("Vertical", 1f);
             }
-            else
+            if (Input.GetKey(KeyCode.S))
             {
-                anim.SetBool("IsRunning", true);
+                scalex = 3.574679f;
+                transform.localScale = new Vector2(scalex, scaley);
+                anim.SetFloat("Horizontal", 0f);
+                anim.SetFloat("Vertical", -1f);
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                scalex = 3.574679f;
+                transform.localScale = new Vector2(scalex, scaley);
+                anim.SetFloat("Horizontal", 1f);
+                anim.SetFloat("Vertical", 0f);
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                scalex = -3.574679f;
+                transform.localScale = new Vector2(scalex, scaley);
+                anim.SetFloat("Horizontal", -1f);
+                anim.SetFloat("Vertical", 0f);
             }
         }
     }
