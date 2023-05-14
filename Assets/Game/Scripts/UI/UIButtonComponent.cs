@@ -3,10 +3,6 @@ using Game.Systems.GameplaySystem;
 using StarSmithGames.Core;
 using StarSmithGames.Go.AudioService;
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 using Zenject;
 
 namespace Game.UI

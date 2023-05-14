@@ -18,11 +18,6 @@ namespace Game.Systems.CameraSystem
 			transform.position = Vector3.Lerp(transform.position, folow.position + offset, smoothing);
 		}
 
-		private void GoToFolow()
-		{
-			transform.position = folow?.position ?? transform.position;
-		}
-
 		private void RefreshPosition()
 		{
 			if (folow == null) return;

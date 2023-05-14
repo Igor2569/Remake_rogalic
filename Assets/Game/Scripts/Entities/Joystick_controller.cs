@@ -20,9 +20,6 @@ namespace Game.Entities
         // Update is called once per frame
         void Update()
         {
-            joystick_movement = new Vector2(joystick.Horizontal, joystick.Vertical);//Input
-
-
             var joystick_scale = transform.localScale;
             joystick_scale.x = joystick_movement.x >= 0 ? 1f : -1f;
             transform.localScale = joystick_scale;
