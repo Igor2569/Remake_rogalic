@@ -9,7 +9,7 @@ namespace Game.Entities
     {
         private float movex;
         public Animator anim;
-        private float speed = 30f;
+        public float speed = 30f;
         public Rigidbody2D rb;
         private float movey;
         private Vector2 moveVector;
@@ -34,6 +34,13 @@ namespace Game.Entities
             moveVector.x = Input.GetAxis("Horizontal") * Time.deltaTime;
             moveVector.y = Input.GetAxis("Vertical") * Time.deltaTime;
             rb.MovePosition(rb.position + moveVector * speed);
+            if (movex==0f && movey == 0)
+            {
+                scalex = 3.574679f;
+                transform.localScale = new Vector2(scalex, scaley);
+                anim.SetFloat("Horizontal", 0f);
+                anim.SetFloat("Vertical", 0f);
+            }
             if (Input.GetKey(KeyCode.W))
             {
                 scalex = 3.574679f;
