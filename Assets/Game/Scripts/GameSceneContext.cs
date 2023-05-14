@@ -1,4 +1,4 @@
-using Game.UI;
+using StarSmithGames.Go;
 
 using Zenject;
 

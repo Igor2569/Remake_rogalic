@@ -1,14 +1,10 @@
 using StarSmithGames.Go;
 
-using System;
-
-using UnityEngine;
-
 using Zenject;
 
 namespace Game.UI
 {
-    public class HUDScreen : WindowBase
+    public class HUDScreen : ViewBase
     {
         public FixedJoystick joystick;
 
